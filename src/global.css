@@ -1,9 +1,95 @@
-:root {
-  --font-display:
-    Spline Sans, Inter, ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji,
-    Segoe UI Symbol, Noto Color Emoji;
-  --font-mono:
-    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
-  --font-rounded: 'SF Pro Rounded', 'Hiragino Maru Gothic ProN', Meiryo, 'MS PGothic', sans-serif;
-  --font-serif: Georgia, 'Times New Roman', serif;
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/preflight.css" layer(base);
+@import "tailwindcss/utilities.css";
+
+@import "nativewind/theme";
+
+@theme {
+  /* ---- Brand / primary colors ---- */
+  --color-lingua-purple: #6c4ef5;
+  --color-lingua-deep-purple: #5b3bf6;
+  --color-lingua-blue: #4d8bff;
+  --color-lingua-green: #21c16b;
+
+  /* ---- Semantic colors ---- */
+  --color-success: #21c16b;
+  --color-warning: #ffc800;
+  --color-streak: #ff8a00;
+  --color-error: #ff4d4f;
+  --color-info: #4d8bff;
+
+  /* ---- Neutrals ---- */
+  --color-text-primary: #0d132b;
+  --color-text-secondary: #6b7280;
+  --color-border: #e5e7eb;
+  --color-surface: #f6f7fb;
+  --color-background: #ffffff;
+
+  /* ---- Fonts ---- */
+  /* App-wide default. React Native fonts don't support fallback lists,
+     so `font-sans` (and its default use in preflight) is pinned to Poppins. */
+  --font-sans: "Poppins-Regular";
+  --font-poppins: "Poppins-Regular";
+  --font-poppins-medium: "Poppins-Medium";
+  --font-poppins-semibold: "Poppins-SemiBold";
+  --font-poppins-bold: "Poppins-Bold";
+}
+
+/*
+ * Typography scale
+ * ---------------------------------------------------------------------------
+ * Tailwind has no built-in utility that bundles a custom font FILE with a
+ * size + line-height, so these are defined as compound utilities per the
+ * design system (H1-H4, Body Large/Medium/Small, Caption). Line-heights are
+ * pre-computed from the design ratios (fontSize * ratio) since React Native
+ * requires an absolute line-height, not a unitless multiplier.
+ *
+ * Usage: <Text className="h1 text-text-primary">Title</Text>
+ */
+@utility h1 {
+  font-family: "Poppins-Bold";
+  font-size: 2rem; /* 32px */
+  line-height: 2.4rem; /* 38.4px */
+}
+
+@utility h2 {
+  font-family: "Poppins-SemiBold";
+  font-size: 1.5rem; /* 24px */
+  line-height: 1.95rem; /* 31.2px */
+}
+
+@utility h3 {
+  font-family: "Poppins-SemiBold";
+  font-size: 1.25rem; /* 20px */
+  line-height: 1.625rem; /* 26px */
+}
+
+@utility h4 {
+  font-family: "Poppins-Medium";
+  font-size: 1rem; /* 16px */
+  line-height: 1.4rem; /* 22.4px */
+}
+
+@utility body-lg {
+  font-family: "Poppins-Regular";
+  font-size: 1rem; /* 16px */
+  line-height: 1.6rem; /* 25.6px */
+}
+
+@utility body-md {
+  font-family: "Poppins-Regular";
+  font-size: 0.875rem; /* 14px */
+  line-height: 1.4rem; /* 22.4px */
+}
+
+@utility body-sm {
+  font-family: "Poppins-Regular";
+  font-size: 0.8125rem; /* 13px */
+  line-height: 1.3rem; /* 20.8px */
+}
+
+@utility caption {
+  font-family: "Poppins-Regular";
+  font-size: 0.6875rem; /* 11px */
+  line-height: 0.9625rem; /* 15.4px */
 }
